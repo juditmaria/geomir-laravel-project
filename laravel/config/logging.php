@@ -118,5 +118,23 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
     ],
+    'channels' => [
+       'stack' => [
+           'driver' => 'stack',
+           'channels' => ['file', 'errorlog'],
+           'ignore_exceptions' => false,
+       ],
+      
+       'file' => [
+           'driver' => 'single',
+           'path' => storage_path('logs/laravel.log'),
+           'level' => env('LOG_LEVEL', 'debug'),
+       ],
+ 
+       'errorlog' => [
+           'driver' => 'errorlog',
+           'level' => env('LOG_LEVEL', 'debug'),
+       ]
+   ],
 
 ];
