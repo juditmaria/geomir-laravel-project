@@ -16,7 +16,7 @@ class MailController extends Controller
                'body' => 'Testing mail',
                'url'  => '/'
            ]);
-           Mail::to('example@example.com')->send($mail);
+           Mail::to('2daw.equip02@fp.insjoaquimmir.cat')->send($mail);
            echo '<h1>Mail send successfully</h1>';
        } catch (\Exception $e) {
            echo '<pre>Error - ' . $e .'</pre>';
