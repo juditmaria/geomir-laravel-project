@@ -9,5 +9,4 @@ Click Here
  
 Thanks,<br>
 {{ config('app.name') }}
-by juditmaria
 @endcomponent

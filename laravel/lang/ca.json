@@ -1,0 +1,11 @@
+{
+    "Dashboard": "Taulell principal",
+    "ERROR uploading file": "ERROR pujant el fitxer",
+    ":resource successfully saved": ":resource s'ha desat correctament",
+    ":resource successfully updated": ":resource s'ha actualitzat correctament",
+    ":resource successfully deleted": ":resource s'ha eliminat correctament",
+    "Are you sure?": "Estàs segur/a?",
+    "You are gonna delete :resource :id.": "Estàs a punt d'eliminar :resource :id",
+    "This action cannot be undone!": "Aquesta acció no es pot desfer!",
+    "You are not the author": "No ets l'autor/a"
+}

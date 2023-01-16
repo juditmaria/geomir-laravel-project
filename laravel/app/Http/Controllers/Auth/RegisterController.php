@@ -63,29 +63,20 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    /* protected function create(array $data)
+    protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $user = User::create([
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        
+        $user->assignRole(Role::AUTHOR);
+
+        event(new \Illuminate\Auth\Events\Registered($user));
+
+        $user->sendEmailVerificationNotification();
+       
+        return $user;
     }
-*/
-protected function create(array $data)
-   {
-       $user = User::create([
-           'name' => $data['name'],
-           'email' => $data['email'],
-           'password' => Hash::make($data['password']),
-       	   'role_id'  => Role::AUTHOR,
-	]);
-
-       event(new \Illuminate\Auth\Events\Registered($user));
-    
-       $user->sendEmailVerificationNotification();
-     
-       return $user;
-   }
-
 }

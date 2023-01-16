@@ -1,7 +1,7 @@
 @extends('layouts.box-app')
 
 @section('box-title')
-    {{ __('File') . " " . $file->id }}
+    {{ __('actions.edit') . " " . __('resources.file') . " " . $file->id }}
 @endsection
 
 @section('box-content')
@@ -10,10 +10,10 @@
         @csrf
         @method("PUT")
         <div class="form-group">
-            <label for="upload">{{ _('File') }}:</label>
+            <label for="upload">{{ __('resources.file') }}:</label>
             <input type="file" class="form-control" name="upload"/>
         </div>
-        <button type="submit" class="btn btn-primary">{{ _('Update') }}</button>
-        <button type="reset" class="btn btn-secondary">{{ _('Reset') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('actions.update') }}</button>
+        <button type="reset" class="btn btn-secondary">{{ __('actions.reset') }}</button>
     </form>
 @endsection

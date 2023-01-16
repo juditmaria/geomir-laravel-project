@@ -35,6 +35,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <!-- Language switcher -->
+                        @include('partials.language-switcher')
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -73,9 +75,10 @@
         </nav>
 
         <main class="py-4">
-            @include('flash')
+            @include('partials.flash')
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
 </body>
 </html>

@@ -18,33 +18,10 @@ class TestMail extends Mailable
      *
      * @return void
      */
-/*
-public function __construct(array $content)
-   {
-       $this->content = $content;
-   }
- 
-   public function build()
-   {
-       // pass here your email template file
-       return $this->markdown('mails.testmail')
-           ->with('content', $this->content);
-   }
-*/
-public function __construct(array $content)
-   {
-       $this->content = $content;
-   }
- 
-   public function content()
-   {
-       return new Content(
-           markdown: 'mails.testmail',
-           with: [
-               'content' => $this->content,
-           ],
-       );
-   }
+    public function __construct(array $content)
+    {
+        $this->content = $content;
+    }
 
     /**
      * Get the message envelope.
@@ -63,15 +40,16 @@ public function __construct(array $content)
      *
      * @return \Illuminate\Mail\Mailables\Content
      */
-
-/*
     public function content()
     {
         return new Content(
             markdown: 'mails.testmail',
+            with: [
+                'content' => $this->content,
+            ],
         );
     }
-*/
+
     /**
      * Get the attachments for the message.
      *

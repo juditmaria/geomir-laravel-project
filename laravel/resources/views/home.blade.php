@@ -10,10 +10,10 @@
             {{ session('status') }}
         </div>
     @endif
-    <h2>{{ __('Resources') }}</h2>
+    <h2>{{ __('resources.resources') }}</h2>
     <ul>
-        <li><a href="{{ url('/files') }}">{{ __('Files') }}</a></li>
-        <li><a href="{{ url('/posts') }}">{{ __('Posts') }}</a></li>
-        <li><a href="{{ url('/places') }}">{{ __('Places') }}</a></li>
+        <li><a href="{{ url('/files') }}">{{ __('resources.files') }}</a></li>
+        <li><a href="{{ url('/posts') }}">{{ __('resources.posts') }}</a></li>
+        <li><a href="{{ url('/places') }}">{{ __('resources.places') }}</a></li>
     </ul>
 @endsection

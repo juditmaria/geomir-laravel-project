@@ -82,8 +82,14 @@ return [
     |
     */
 
-    'locale' => 'en',
-
+    'locale' => 'ca',
+    
+    'available_locales' => [
+        'ca' => 'Català',
+        'es' => 'Castellano',
+        'en' => 'English',
+    ],
+    
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -185,7 +191,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Spatie\Permission\PermissionServiceProvider::class,
+        
         /*
          * Application Service Providers...
          */

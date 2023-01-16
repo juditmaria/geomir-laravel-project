@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+use App\Models\Role;
 
 return new class extends Migration
 {
@@ -13,33 +15,36 @@ return new class extends Migration
      */
     public function up()
     {
-        // Crear taula roles
+        $authorRole = 1;
+
+        // Create roles table
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->timestamps();
         });
-	//Trucar seeder
+
+        // Call seeder
         Artisan::call('db:seed', [
             '--class' => 'RoleSeeder',
             '--force' => true // <--- add this line
         ]);
 
-   	//Actualizar tabla users
-        Schema::table('users', function (Blueprint $table) {
+        // Update users table       
+        Schema::table('users', function (Blueprint $table) use ($authorRole) {
             $table->unsignedBigInteger('role_id')
                   ->nullable()
-                  ->default(Role::AUTHOR);
-            $table->foreign('role_id') //Clau foranea
+                  ->default($authorRole);
+            $table->foreign('role_id')
                   ->references('id')->on('roles')
                   ->onUpdate('cascade')
                   ->onDelete('set null');
         });
 
-        // Actualizar antics usuaris amb el rol per defecte
+        // Update old users with default role
         DB::update(
             "UPDATE users
-             SET role_id = " . Role::AUTHOR . "
+             SET role_id = " . $authorRole . "
              WHERE role_id IS NULL",
         );
     }
